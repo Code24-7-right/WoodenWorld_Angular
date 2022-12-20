@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Displaying Cart details</h2>
+<table class="table table-striped table-hover table-dark">
+    <thead>
+        <tr>
+            <th>Cart ID</th>
+            <th>User ID</th>    
+            <th>Product ID</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let cart of carts">
+            <td>{{ cart.cid }}</td>
+            <td>{{ cart.uid }}</td>
+            <td>{{ cart.pid}}</td>
+            <td>{{ cart.quantity}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

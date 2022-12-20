@@ -1,0 +1,9 @@
+.table-hover{
+    color: yellow;
+}
+tr:hover{
+    background-color: white;
+}  
+body{
+    background-color: white;
+}

@@ -1,0 +1,55 @@
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-truncate">Registration Form</h1>
+                    <div class="px-2">
+                        <div class="container">
+                            <div class = "form">
+                            <form #UserRegisterForm = "ngForm" (ngSubmit) = "registration(UserRegisterForm.value)" novalidate>
+                            <div *ngIf = "uname.errors?.['required'] && uname.touched">Please enter Username</div>
+                            <div *ngIf = "uname.errors?.['minlength'] && uname.touched">Please enter atleast 5 characters</div>
+                            Username:<input type = "text" class="form-control" ngModel name = "uname" #uname = "ngModel" required minlength="5" maxlength="25"><br>
+                           
+                            <div *ngIf = "uemail.errors?.['required'] && uemail.touched">Please enter Username</div>
+                            <div *ngIf = "uemail.errors?.['minlength'] && uemail.touched">Please enter proper E-mail Id</div>
+                            E-Mail:<input type = "email" class="form-control" ngModel name = "uemail" #uemail = "ngModel"
+                            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" 
+                            required minlength="8" maxlength="40"><br>
+                        
+                            <div *ngIf = "uphoneno.errors?.['required'] && uphoneno.touched">Please enter Phone Number</div>
+                            <div *ngIf = "uphoneno.errors?.['minlength'] && uphoneno.touched">Please enter 10 digit Phone Number</div>
+                            Phone No:<input type = "number" class="form-control" ngModel name = "uphoneno" #uphoneno = "ngModel" 
+                            pattern="[1-9]{1}[0-9]{9}"
+                            required minlength="10" maxlength="10"><br>
+                        
+                            <div *ngIf = "upwd.errors?.['required'] && upwd.touched">Please enter Password</div>
+                            <div *ngIf = "upwd.errors?.['minlength'] && upwd.touched">Please enter atleast 6 characters</div>
+                            Password:<input type = "text" class="form-control" ngModel name = "upwd" #upwd = "ngModel" required minlength="6" maxlength="25"><br>
+                        
+                            <div *ngIf = "address.errors?.['required'] && address.touched">Please enter Addess</div>
+                            <div *ngIf = "address.errors?.['minlength'] && address.touched">Please enter atleast 6 characters</div>
+                            Address:<input type = "text" class="form-control" ngModel name = "address" #address = "ngModel" required minlength="6" maxlength="200" size="100"><br>
+                        
+                            <div *ngIf = "city.errors?.['required'] && city.touched">Please enter city name</div>
+                            <div *ngIf = "city.errors?.['minlength'] && city.touched">Please enter atleast 3 characters</div>
+                            City:<input type = "text" class="form-control" ngModel name = "city" #city = "ngModel" required minlength="3" maxlength="30"><br>
+                        
+                            <div *ngIf = "country.errors?.['required'] && country.touched">Please enter country name</div>
+                            <div *ngIf = "country.errors?.['minlength'] && country.touched">Please enter atleast 3 characters</div>
+                            Country:<input type = "text" class="form-control" ngModel name = "country" #country = "ngModel" required minlength="3" maxlength="25"><br>
+                            
+                            <div *ngIf = "post_code.errors?.['required'] && post_code.touched">Please enter Post Code</div>
+                            <div *ngIf = "post_code.errors?.['minlength'] && post_code.touched">Please enter atleast 5 characters</div>
+                            Post Code:<input type = "number" class="form-control" ngModel name = "post_code" #post_code = "ngModel" required minlength="5" maxlength="6"><br>
+                            <button [disabled]="UserRegisterForm.invalid" class="btn btn-primary">Register</button>
+                        </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

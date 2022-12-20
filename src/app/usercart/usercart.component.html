@@ -1,0 +1,19 @@
+<!--<h1 style="text-align: center;">Displaying Cart Items</h1>
+<h4 style="margin-left: 350px;">Total Price: {{totalPrice}}</h4>
+<button (click)="GoToPaymentPage()" style="margin-left: 350px;padding: 4px;color: white;background-color: #000;cursor: pointer;width: 650px;font-size: 18px;">Proceed to checkout</button>
+<table style="margin-left: 350px;" >
+    <tr>
+        <th>Product image</th>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let p of cartProducts" class="table-row">
+        <td><img src="{{p.pimg}}" alt="{{p.pname}}"></td>
+        <td>{{p.pname}}</td>
+        <td>{{p.pprice | currency:'INR'}}</td>
+        <td>
+            <button (click)="DeleteFromCart(p)" style="padding: 4px;color: white;background-color: #000;cursor: pointer;width: 100px;font-size: 12px;">Remove from cart</button>
+        </td>
+    </tr>
+</table>     -->

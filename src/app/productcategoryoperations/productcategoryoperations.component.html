@@ -1,0 +1,80 @@
+<div class="container">
+    <br><br>
+    <button class="btn btn-primary" (click)="openAddProductCategoryModal()">Click Here to add product category</button>
+    <br><br>
+    <h2>Displaying Product Categories</h2>
+<table class="table table-striped table-hover table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>   
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let productcategory of productcategories">
+            <td>{{ productcategory.pcid }}</td>
+            <td>{{ productcategory.pcname }}</td>
+            <td>
+                <button (click)="openUpdateProductCategoryModal()" (click)="sendCurrentProductCategoryData(productcategory)" class="btn btn-info">Update Product Category</button><br><br>
+                <button (click) = "deleteproductcategory(productcategory.pcid)" class="btn btn-danger">Delete Product Category</button><br><br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayUpdateModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Update Product</h3>
+            </div>
+            <div class="modal-body">
+                <div class="updateproductcategoryform">
+                    <div class="content">
+                    <div class="container-fluid">
+                        <h4>Enter details of product to update</h4>
+                        <form #updateproductcategoryform = "ngForm" (ngSubmit) = "updateproductcategory()">
+                            <div *ngIf="pcname.errors?.['required'] && pcname.touched">Please enter product name</div>
+                            <div *ngIf="pcname.errors?.['minlength'] && pcname.touched">Please enter atleast 5 characters</div>
+                            Name:<input type = "text" ngModel name ="pcname" #pcname = "ngModel" [(ngModel)] = "productcategory.pcname" required minlength="3" maxlength="30" placeholder="Enter product category name"><br><br>
+                            <input type="submit" value="Update Product Category">
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeUpdateProductCategoryModal()">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displayAddModal}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Product</h3>
+            </div>
+            <div class="modal-body">
+                <div class="addproductcategoryform">
+                    <div class="content">
+                        <div class="container-fluid">
+                            <h2>Enter details of Product Category to add</h2>
+                            <form #addproductcategoryform = "ngForm" (ngSubmit) = "addproductcategory(addproductcategoryform.value)">
+                                <div *ngIf="pcname.errors?.['required'] && pcname.touched">Please enter product category name</div>
+                                <div *ngIf="pcname.errors?.['minlength'] && pcname.touched">Please enter atleast 3 characters</div>
+                                Name:<input type = "text" ngModel name ="pcname" #pcname = "ngModel" required minlength="3" maxlength="25"><br><br>
+                                <input type="submit" value="Add Product Category">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeAddProductCategoryModal()">Close</button>
+        </div>
+        </div>
+    </div>
+</div>

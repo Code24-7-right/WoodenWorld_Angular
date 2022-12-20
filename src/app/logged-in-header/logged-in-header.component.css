@@ -1,0 +1,9 @@
+.glyphicon {
+    font-size: 20px;
+}
+To target only one icon,
+
+.glyphicon.shopping-cart {
+    font-size: 20px;
+    padding-right: 80px;
+}

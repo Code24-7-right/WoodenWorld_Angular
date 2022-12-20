@@ -1,0 +1,17 @@
+<div *ngIf="GetHeader1()">
+    <app-header></app-header>
+</div>
+<div *ngIf="GetHeader2()">
+    <app-logged-in-header></app-logged-in-header>
+</div>
+<div *ngIf="GetHeader3()">
+    <app-adminheader></app-adminheader>
+</div>
+<!--<div *ngIf="GetHeader();else elseBlock">
+    <app-logged-in-header></app-logged-in-header>
+</div>
+<ng-template #elseBlock>
+    <app-header></app-header>
+</ng-template>-->
+<!--<router-outlet></router-outlet>-->
+    

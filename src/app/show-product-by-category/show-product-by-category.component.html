@@ -1,0 +1,36 @@
+<div>
+    <br>
+    <form class="d-flex" #searchForm = "ngForm" style="margin-left: 900px;">
+        <label style="color: white;">Search Product</label>
+        <input type="text" size="50"  name = "searchfor" [(ngModel)] = "searchfor"   placeholder="Enter product name">
+    </form>
+    <div class="flex-container" style="margin-left: 10px;">
+      <div class="flex-box">
+        <nav class="navbar navbar-expand-lg navbar-light bs-side-navbar" style="background-color:green;">
+          <a class="navbar-brand" href="#">Select Product Category</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item" *ngFor="let pc of productcategories">
+                    <a class="nav-link" (click)="showProductsByCategory(pc.pcid)">{{pc.pcname}}</a>
+                </li>
+              </ul>
+    
+          </div>
+        </nav>
+      </div>
+        <div class="flex-box" *ngFor="let product of productsFound | filter:searchfor" style="margin-bottom: 350px;">
+          <img src="{{product.pimg}}" class = "img-thumbnail"  width="300px"  alt="product"/>
+          <h4 class="text" style="font-size: 14px;margin-left: 40px">{{product.pname}}</h4>
+          <p class="text" style="font-size: 14px;margin-left: 40px">{{product.pprice | currency : 'INR'}}</p>
+          <p class="text" style="margin-left: 40px">Description:<br>{{product.pdesc}}</p>
+          <button (click)="goToUserCart(product.pid)"  style="padding: 12px;color: white;background-color: #000;cursor: pointer;width: 300px;font-size: 18px;">Add to Cart</button><br>
+          <button (click)="GoToPaymentPage(product)" style="padding: 12px;color: white;background-color: red;cursor: pointer;width: 300px;font-size: 18px;">Buy Now</button>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    </div>
